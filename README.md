@@ -464,6 +464,61 @@ We used:
 
 > 🔎 **XGBoost** achieved the best average R² score (0.887), with the lowest standard deviation, indicating both strong performance and stability.
 
+# 🧪 Feature Engineering + Hyperparameter Tuning
+
+In this section, we enhance our predictive model by:
+
+1. Creating **interaction features** (combinations of existing variables)
+2. Performing **hyperparameter tuning** on XGBoost using `RandomizedSearchCV`
+3. Evaluating model performance using **R² score** and **RMSE**
+
+---
+
+## 🧠 Feature Engineering
+
+We added a new interaction feature:
+
+- `grade_x_sqft = grade * sqft_living`
+
+This feature captures the combined influence of **quality** and **size** of the home on its price. It helps the model learn more complex relationships.
+
+---
+
+## 🔧 Hyperparameter Tuning (XGBoost)
+
+We used `RandomizedSearchCV` to find the best hyperparameters for the `XGBRegressor`.
+
+### Parameters tuned:
+
+| Parameter           | Values Tested                        |
+|---------------------|--------------------------------------|
+| `n_estimators`      | 100, 200, 300                        |
+| `learning_rate`     | 0.05, 0.1, 0.2                       |
+| `max_depth`         | 3, 5, 7                              |
+| `subsample`         | 0.7, 0.8, 1.0                        |
+| `colsample_bytree`  | 0.7, 0.8, 1.0                        |
+
+We used:
+- `n_iter = 10` random combinations
+- `cv = 3` cross-validation folds
+- `scoring = r2`
+
+---
+
+## ✅ Results
+
+| Metric                 | Value           |
+|------------------------|-----------------|
+| **Best Parameters**    | `{'subsample': 0.7, 'n_estimators': 300, 'max_depth': 7, 'learning_rate': 0.05, 'colsample_bytree': 0.7}` |
+| **R² Score (test set)**| **0.8745**       |
+| **RMSE (test set)**    | **127,780.25 €** |
+
+This confirms that feature engineering + hyperparameter tuning helped the model generalize better and lower the prediction error compared to the untuned XGBoost model.
+
+---
+
+📌 This step significantly improved model robustness and should be used prior to deployment.
+
 
 ## 🧩 Structured Conclusion
 
@@ -516,7 +571,6 @@ This indicates:
 - ✅ Use **XGBoost** for production when maximum accuracy is needed  
 - 🧠 **Random Forest** is an excellent balance between speed and performance  
 - ❌ Avoid **KNN** or unoptimized Decision Trees for complex real-estate pricing
-
 
 
 
