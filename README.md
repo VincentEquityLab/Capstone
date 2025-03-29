@@ -415,6 +415,35 @@ A simplified version of the trained tree reveals key decision rules learned by t
 🧠 **Decision Tree Visualization**  
 ![Decision Tree](images/Decision%20Tree.png)
 
+## 🔍 Logistic Regression with PCA
+
+To visualize the classification and assess performance, a logistic regression model was trained using PCA-reduced features (first 2 principal components). PCA helped reduce dimensionality and allowed us to plot the decision space.
+
+### 📌 Confusion Matrix
+
+This matrix evaluates the performance of the classifier:
+
+- **True Positives (TP)**: 1721
+- **True Negatives (TN)**: 1831
+- **False Positives (FP)**: 339
+- **False Negatives (FN)**: 429
+
+Accuracy, precision, recall, and F1-score were computed based on this confusion matrix.
+
+![Confusion Matrix](images/Confusion%20Matrix.png)
+
+---
+
+### 📊 PCA Projection of KC House Data
+
+The PCA projection provides a 2D visualization of the data structure after dimensionality reduction. The model attempts to separate classes based on price category using logistic regression.
+
+- Red: High-priced houses
+- Blue: Low-priced houses
+
+While overlap exists, we can see that PCA + Logistic Regression offers some level of linear separability.
+
+![PCA Projection](images/PCA%20Projection.png)
 
 
 ## 🧬 Model Building & Evaluation
