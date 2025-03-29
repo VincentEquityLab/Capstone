@@ -426,11 +426,11 @@ The **Random Forest Regressor** was implemented as an ensemble method to enhance
 
 📉 **Results**:
 
-- ✅ **RMSE**: 125,725.50
+- ✅ **RMSE**: 125,725.50  
 - 📈 **R² Score**: 0.878
 
 📊 **Top 10 Feature Importances – Random Forest**  
-![Top 10 Random Forest Features](top%2010%20random%20forest.png)
+![Top 10 Random Forest Features](images/top%2010%20random%20forest.png)
 
 ---
 
@@ -441,11 +441,12 @@ The **Random Forest Regressor** was implemented as an ensemble method to enhance
 
 📉 **Results**:
 
-- ✅ **RMSE**: 128,719.73
+- ✅ **RMSE**: 128,719.73  
 - 📈 **R² Score**: 0.873
 
 📊 **Top 10 Feature Importances – XGBoost**  
-![Top 10 Features XGBoost](Top%2010%20features%20XGboost.png)
+![Top 10 Features XGBoost](images/Top%2010%20features%20XGboost.png)
+
 
 
 ## 🔍 Logistic Regression with PCA 
