@@ -334,6 +334,57 @@ Ensemble-based Random Forest model confirms the relevance of certain features.
 | `waterfront`      | Clear segmenting factor for luxury      |
 | `yr_built`        | Reflects construction quality/era       |
 
+# Classification 
+## 🤖 K-Nearest Neighbors (KNN) Regression
+
+K-Nearest Neighbors (KNN) was used as a baseline model to predict housing prices. It is a simple, non-parametric method that relies on the similarity of neighboring data points.
+
+---
+
+### ⚙️ Methodology
+
+- Features were scaled using **MinMaxScaler** before training.
+- K values from **1 to 20** were tested using the **validation set**.
+- Performance was evaluated using:
+  - **R² Score** (explained variance)
+  - **Root Mean Squared Error (RMSE)**
+
+---
+
+### 📈 R² Score vs. Number of Neighbors (K)
+
+The R² score peaked around **K = 6**, indicating the best generalization capability at that point.
+
+![KNN R² Score](images/KNN-R2%20Score.png)
+
+---
+
+### 📉 RMSE vs. Number of Neighbors (K)
+
+RMSE reached its minimum (~**165,800**) when **K = 6**, suggesting it as the optimal number of neighbors.
+
+![KNN RMSE vs K](images/KNN-RMSE%20vs%20K.png)
+
+---
+
+### 🔢 Key Metrics (Best Performing K = 6)
+
+| Metric       | Value     |
+|--------------|-----------|
+| **K**        | 6         |
+| **R² Score** | 0.787     |
+| **RMSE**     | 165,800   |
+
+---
+
+### 🧠 Insights
+
+- KNN achieved a decent **R² score of 0.787** at **K=6**.
+- Performance plateaued after **K > 6**, with minimal variation in results.
+- Although effective as a benchmark, KNN:
+  - **Lacks interpretability**
+  - **Scales poorly** with large datasets (due to distance computation)
+
 
 
 ## 🧬 Model Building & Evaluation
