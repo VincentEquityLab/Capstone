@@ -288,16 +288,53 @@ Some skewness was observed in `sqft_lot` and `price`, which were addressed via l
 
 
 ---
-
-## 🌐 Feature Engineering
+## 🧠 Feature Selection 
 
 📂 **File**: `scripts/Feature_Engineering.ipynb`
 
-- Created new features: `house_age`, `was_renovated`
-- Log-transformed skewed features like `price`, `sqft_living`
-- Encoded categorical variables
+Identifying the most relevant features is critical to building effective predictive models. We used both **correlation analysis** and **model-based feature importance** to guide our selection.
 
 ---
+
+### 🔗 Correlation with Price (Pearson)
+
+We visualized how each numeric feature correlates with `price` using a heatmap.
+
+![Correlation with Price](images/Correlation%20with%20Price.png)
+
+> `sqft_living`, `grade`, and `sqft_above` have the strongest positive correlations with price.
+
+---
+
+### 🌳 Feature Importance from Decision Tree
+
+Decision Tree Regressor helps highlight the most decisive splits used for price prediction.
+
+![Decision Tree Feature Importance](images/features%20importances.png)
+
+---
+
+### 🌲 Feature Importance from Random Forest
+
+Ensemble-based Random Forest model confirms the relevance of certain features.
+
+![Random Forest Feature Importance](images/features%20importance%20from%20Random%20forest.png)
+
+---
+
+### ✅ Key Features Selected for Modeling
+
+| Feature          | Justification                           |
+|------------------|-----------------------------------------|
+| `sqft_living`     | Strongest linear correlation with price |
+| `grade`           | Most important in both tree models      |
+| `sqft_above`      | Highly correlated and frequently used   |
+| `bathrooms`       | Contributes to price variation          |
+| `view`, `lat`     | Adds spatial & visual differentiation   |
+| `waterfront`      | Clear segmenting factor for luxury      |
+| `yr_built`        | Reflects construction quality/era       |
+
+
 
 ## 🧬 Model Building & Evaluation
 
