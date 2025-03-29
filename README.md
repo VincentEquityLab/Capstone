@@ -239,10 +239,6 @@ sqft_above also shows strong correlation with price.
 | view           | 0.40                   |
 
 
-## 5. Outliers
-
-Outliers check was performed using Z-Score on key numerical fields such as `price`, `sqft_living`, and `sqft_lot`. No extreme outliers were removed, as most values fell within reasonable ranges. Some skewness was observed in `sqft_lot` and `price`, which were addressed via log transformation in the Feature Engineering phase.
-
 ## 5. 📦 Outliers
 
 Outliers check was performed using Z-Score on key numerical fields such as `price`, `sqft_living`, and `sqft_lot`.  
