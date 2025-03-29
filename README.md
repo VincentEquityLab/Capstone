@@ -385,6 +385,36 @@ RMSE reached its minimum (~**165,800**) when **K = 6**, suggesting it as the opt
   - **Lacks interpretability**
   - **Scales poorly** with large datasets (due to distance computation)
 
+## 🌳 Decision Tree Regressor
+
+The **Decision Tree Regressor** was used to understand feature splits and gain interpretability into how the model predicts house prices.
+
+### 🔢 Top 10 Feature Importances
+
+The most influential features according to the Decision Tree model are:
+
+- `grade` (overall construction & design quality)
+- `sqft_living` (interior living space)
+- `lat` (latitude – proxy for location)
+- `long` (longitude)
+- `waterfront` (whether the property has waterfront view)
+
+📊 **Feature Importance Plot**  
+![Top 10 Feature Importances - Decision Tree](images/top%2010%20feature%20importance%20-%20decision%20Tree.png)
+
+---
+
+### 🌲 Simplified Decision Tree (Max Depth = 2)
+
+A simplified version of the trained tree reveals key decision rules learned by the model. The most frequent splits occurred on:
+
+- `grade`
+- `sqft_living`
+- `lat`
+
+🧠 **Decision Tree Visualization**  
+![Decision Tree](images/Decision%20Tree.png)
+
 
 
 ## 🧬 Model Building & Evaluation
