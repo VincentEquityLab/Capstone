@@ -422,12 +422,12 @@ A simplified version of the trained tree reveals key decision rules learned by t
 ## 🌲 Random Forest Regressor  
 📂 **File**: `5-Random_Forest_C_ipynb.ipynb`
 
-The **Random Forest** model was used to improve predictive performance compared to a simple Decision Tree. Thanks to its ensemble approach, it generalizes better on complex data.
+The **Random Forest Regressor** was implemented as an ensemble method to enhance predictive accuracy and reduce overfitting compared to a standalone decision tree. It aggregates predictions from multiple decision trees, leading to more stable and accurate outputs.
 
 📉 **Results**:
 
-- ✅ RMSE: **125,725.50**
-- 📈 R² Score: **0.878**
+- ✅ **RMSE**: 125,725.50
+- 📈 **R² Score**: 0.878
 
 📊 **Top 10 Feature Importances – Random Forest**  
 ![Top 10 Random Forest Features](top%2010%20random%20forest.png)
@@ -437,15 +437,16 @@ The **Random Forest** model was used to improve predictive performance compared 
 ## ⚡ XGBoost Regressor  
 📂 **File**: `6-XgboostC_ipynb.ipynb`
 
-**XGBoost** is a powerful boosting algorithm, widely used in data science competitions due to its high accuracy and performance.
+**XGBoost** is a gradient boosting algorithm known for its scalability and superior performance in structured data problems. It builds trees sequentially and minimizes errors through gradient descent optimization.
 
 📉 **Results**:
 
-- ✅ RMSE: **128,719.73**
-- 📈 R² Score: **0.873**
+- ✅ **RMSE**: 128,719.73
+- 📈 **R² Score**: 0.873
 
 📊 **Top 10 Feature Importances – XGBoost**  
 ![Top 10 Features XGBoost](Top%2010%20features%20XGboost.png)
+
 
 ## 🔍 Logistic Regression with PCA 
 📂**File**:'scripts/7-LogisticRegression_PCA_c.ipynb 
