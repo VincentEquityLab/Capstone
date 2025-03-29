@@ -419,8 +419,37 @@ A simplified version of the trained tree reveals key decision rules learned by t
 🧠 **Decision Tree Visualization**  
 ![Decision Tree](images/Decision%20Tree.png)
 
+## 🌲 Random Forest Regressor  
+📂 **File**: `5-Random_Forest_C_ipynb.ipynb`
+
+The **Random Forest** model was used to improve predictive performance compared to a simple Decision Tree. Thanks to its ensemble approach, it generalizes better on complex data.
+
+📉 **Results**:
+
+- ✅ RMSE: **125,725.50**
+- 📈 R² Score: **0.878**
+
+📊 **Top 10 Feature Importances – Random Forest**  
+![Top 10 Random Forest Features](top%2010%20random%20forest.png)
+
+---
+
+## ⚡ XGBoost Regressor  
+📂 **File**: `6-XgboostC_ipynb.ipynb`
+
+**XGBoost** is a powerful boosting algorithm, widely used in data science competitions due to its high accuracy and performance.
+
+📉 **Results**:
+
+- ✅ RMSE: **128,719.73**
+- 📈 R² Score: **0.873**
+
+📊 **Top 10 Feature Importances – XGBoost**  
+![Top 10 Features XGBoost](Top%2010%20features%20XGboost.png)
+
 ## 🔍 Logistic Regression with PCA 
-📂**File**:'scripts/7-LogisticRegression_PCA_c.ipynb
+📂**File**:'scripts/7-LogisticRegression_PCA_c.ipynb 
+
 
 
 To visualize the classification and assess performance, a logistic regression model was trained using PCA-reduced features (first 2 principal components). PCA helped reduce dimensionality and allowed us to plot the decision space.
