@@ -53,7 +53,7 @@ Capstone Project for **Berkeley HAAS (ML & AI Program)**
 
 # 📊 Exploratory Data Analysis (EDA)
 
-📂 **File**: `scripts/EDA.ipynb`
+📂 **File**: `scripts/EDAc.ipynb`
 
 EDA focused on understanding the distribution and correlation of key variables, revealing patterns and potential insights for the regression task.
 
@@ -290,7 +290,7 @@ Some skewness was observed in `sqft_lot` and `price`, which were addressed via l
 ---
 ## 🧠 Feature Selection 
 
-📂 **File**: `scripts/Feature_Engineering.ipynb`
+📂 **File**: 'scripts/2-Feature_Selectionc.ipynb'
 
 Identifying the most relevant features is critical to building effective predictive models. We used both **correlation analysis** and **model-based feature importance** to guide our selection.
 
@@ -335,7 +335,9 @@ Ensemble-based Random Forest model confirms the relevance of certain features.
 | `yr_built`        | Reflects construction quality/era       |
 
 # Classification 
-## 🤖 K-Nearest Neighbors (KNN) Regression
+## 🤖 K-Nearest Neighbors (KNN) Regression 
+
+  📂 **File**:'scripts/3-KNNc.ipynb'
 
 K-Nearest Neighbors (KNN) was used as a baseline model to predict housing prices. It is a simple, non-parametric method that relies on the similarity of neighboring data points.
 
@@ -385,8 +387,10 @@ RMSE reached its minimum (~**165,800**) when **K = 6**, suggesting it as the opt
   - **Lacks interpretability**
   - **Scales poorly** with large datasets (due to distance computation)
 
-## 🌳 Decision Tree Regressor
+## 🌳 Decision Tree Regressor 
 
+ 📂 **File**:'scripts/4-DecisionTreeRegressorC.ipynb'
+'
 The **Decision Tree Regressor** was used to understand feature splits and gain interpretability into how the model predicts house prices.
 
 ### 🔢 Top 10 Feature Importances
@@ -415,7 +419,9 @@ A simplified version of the trained tree reveals key decision rules learned by t
 🧠 **Decision Tree Visualization**  
 ![Decision Tree](images/Decision%20Tree.png)
 
-## 🔍 Logistic Regression with PCA
+## 🔍 Logistic Regression with PCA 
+📂**File**:'scripts/7-LogisticRegression_PCA_c.ipynb
+
 
 To visualize the classification and assess performance, a logistic regression model was trained using PCA-reduced features (first 2 principal components). PCA helped reduce dimensionality and allowed us to plot the decision space.
 
@@ -445,7 +451,9 @@ While overlap exists, we can see that PCA + Logistic Regression offers some leve
 
 ![PCA Projection](images/PCA%20Projection.png)  
 
-## 🔁 Cross Validation
+## 🔁 Cross Validation 
+
+📂**File**:'scripts/8-Cross_Validation.ipynb'
 
 To evaluate model stability and generalizability, we applied **K-Fold Cross Validation** across several regression models using the R² metric.
 
@@ -474,7 +482,9 @@ In this section, we enhance our predictive model by:
 
 ---
 
-## 🧠 Feature Engineering
+## 🧠 Feature Engineering 
+
+📂**File**:'scripts/9-Feature_Engineering_+_Hyperparameter_Tuning.ipynb'
 
 We added a new interaction feature:
 
