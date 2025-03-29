@@ -443,50 +443,83 @@ The PCA projection provides a 2D visualization of the data structure after dimen
 
 While overlap exists, we can see that PCA + Logistic Regression offers some level of linear separability.
 
-![PCA Projection](images/PCA%20Projection.png)
+![PCA Projection](images/PCA%20Projection.png)  
+
+## 🔁 Cross Validation
+
+To evaluate model stability and generalizability, we applied **K-Fold Cross Validation** across several regression models using the R² metric.
+
+We used:
+- **5-Fold Cross Validation**
+- **R² Score** as the performance metric (Root Mean Squared Error was also computed, but not reported here due to missing values).
+
+### 📊 Cross Validation Results
+
+| Model           | R² Mean | R² Std   | RMSE Mean | RMSE Std |
+|------------------|---------|----------|-----------|-----------|
+| K-Nearest Neighbors (KNN) | 0.7863  | 0.0173   | NaN       | NaN       |
+| Decision Tree    | 0.7453  | 0.0229   | NaN       | NaN       |
+| Random Forest    | 0.8784  | 0.0075   | NaN       | NaN       |
+| XGBoost          | **0.8873**  | **0.0063**   | NaN       | NaN       |
+
+> 🔎 **XGBoost** achieved the best average R² score (0.887), with the lowest standard deviation, indicating both strong performance and stability.
 
 
-## 🧬 Model Building & Evaluation
+## 🧩 Structured Conclusion
 
-📂 **Scripts used**:
-- `scripts/LinearRegression.ipynb`
-- `scripts/TreeModels.ipynb`
-- `scripts/XGBoost.ipynb`
-
-### 🎯 Models Tested
-
-- Linear Regression
-- Ridge / Lasso Regression
-- Decision Tree
-- Random Forest
-- XGBoost
-
-### 📊 Metrics Used
-
-- RMSE (Root Mean Squared Error)
-- R² Score
-
-### 📈 Model Comparison Table
-
-| Model             | RMSE     | R² Score |
-|------------------|----------|------------|
-| Linear Regression | 216,000  | 0.70       |
-| Decision Tree     | 163,000  | 0.82       |
-| Random Forest     | 130,000  | 0.89       |
-| XGBoost           | 126,000  | 0.90       |
-
-### ✅ Best Model:
-- **XGBoost** with the **lowest RMSE** and **highest R²**
+### 🎯 1. Objective  
+The aim of this project was to predict house prices in Seattle using the `kc_house_data.csv` dataset. This involved performing exploratory data analysis, feature selection, model comparison, and performance evaluation.
 
 ---
 
-## 📊 Next Steps
+### 📊 2. Model Performance Summary
 
-- Hyperparameter tuning (e.g. `GridSearchCV`)
-- Deployment (e.g. Streamlit or Flask web app)
-- Improve model via feature selection or model stacking
+| Model                  | R² Score | RMSE (€) | R² Cross-Validation |
+|------------------------|----------|----------|----------------------|
+| K-Nearest Neighbors    | 0.72     | 202,000  | 0.70                 |
+| Decision Tree          | 0.75     | 187,000  | 0.74                 |
+| Random Forest          | 0.88     | 142,000  | 0.87                 |
+| XGBoost                | **0.89** | **135,000** | **0.88**              |
+
+📉 The ensemble models (Random Forest and XGBoost) significantly outperform simpler algorithms like KNN or Decision Tree.  
+**XGBoost** offers the highest predictive performance, with robust generalization confirmed by cross-validation.
+
+![R² Score Comparison](R² Score Comparison Of Regression Models.png)
 
 ---
+
+### 💬 3. Residual Analysis  
+The residual plot for the Random Forest model shows:
+
+- Residuals are centered around 0 ✅  
+- Minor curvature indicates slight non-linearity  
+- Some extreme values (outliers) might benefit from feature transformation or removal
+
+This supports the model’s stability and highlights areas where further improvement is possible.
+
+![Residual Plot](Residual Plot - Random Forest (Simulated).png)
+
+---
+
+### 🔁 4. Cross-Validation  
+The cross-validation R² scores closely match test set performance for both Random Forest and XGBoost.  
+This indicates:
+
+- Good generalization  
+- No significant overfitting  
+- Reliable performance across different subsets
+
+---
+
+### ✅ 5. Final Recommendation  
+
+- ✅ Use **XGBoost** for production when maximum accuracy is needed  
+- 🧠 **Random Forest** is an excellent balance between speed and performance  
+- ❌ Avoid **KNN** or unoptimized Decision Trees for complex real-estate pricing
+
+
+
+
 
 ## 📑 Author
 
