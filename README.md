@@ -1,11 +1,7 @@
-# Capstone
+ # House Price Prediction - Capstone Project
 Berkeley ML &amp; AI Capstone Project-Real Estate
 
-
-
 📁 Dataset Overview
-
-# House Price Prediction - Capstone Project
 
 Capstone Project for **Berkeley HAAS (ML & AI Program)**
 
@@ -51,14 +47,14 @@ Capstone Project for **Berkeley HAAS (ML & AI Program)**
 
 ---
 
-# 📊 Exploratory Data Analysis (EDA)
+# 📊 1.Exploratory Data Analysis (EDA)
 
 📂 **File**: `scripts/EDAc.ipynb`
 
 EDA focused on understanding the distribution and correlation of key variables, revealing patterns and potential insights for the regression task.
 
 --- 
-## 🧹 1. Cleaning
+### 🧹 1.1 Cleaning
 Verified null values: 
 ✅ No missing data found in any column.
 
@@ -70,7 +66,7 @@ Renamed some variables for consistency.
 
 
 
-## 🔍2. Univariate & Bivariate Data Distributions
+### 🔍1.2 Univariate & Bivariate Data Distributions
 
 Below are visual insights generated during the Exploratory Data Analysis phase, helping us understand how each feature behaves individually and in relation to house prices.
 
@@ -126,7 +122,7 @@ Below are visual insights generated during the Exploratory Data Analysis phase, 
 
 ---
 
-## 📌3 Bivariate Visualizations (Relationships Between Features)
+###  📌1.3 Bivariate Visualizations (Relationships Between Features)
 ---
 
 
@@ -154,25 +150,20 @@ Strong positive correlation—larger homes are more expensive.
 Above-ground area is a strong predictor of price.  
 ![Price vs sqft_above](images/EDA-prive%20vs%20sqt%20above.png)
 
----
-
-### Geographic distribution of houses (colored by price)
+ **📉Geographic distribution of houses (colored by price)**
 
 - Houses with the highest prices are concentrated in specific clusters, mostly around water or upscale neighborhoods.
 - The latitude-longitude map shows a clear price zoning pattern.
-
-📍  
 ![House locations colored by price](images/EDA-House%20locations.png)
-
 ---
 
-## 🧪 4. Multivariate Analysis
+### 🧪 1.4 Multivariate Analysis
 
 Multivariate Analysis involved visualizing one continuous variable (price) in relation to two or more categorical variables to identify deeper patterns.
 
 ---
 
-### 1. Analysis of `sqft_living` across `bedrooms` and `price`
+#### 1.4.1 Analysis of `sqft_living` across `bedrooms` and `price`
 
 - Larger living areas correlate with higher prices, especially for homes with 3–5 bedrooms.
 - Smaller homes (1–2 bedrooms) rarely exceed the \$1 million mark.
@@ -182,7 +173,7 @@ Multivariate Analysis involved visualizing one continuous variable (price) in re
 
 ---
 
-### 2. Analysis of `sqft_above` vs. `grade` and `price`
+#### 1.4.2 Analysis of `sqft_above` vs. `grade` and `price`
 
 - Higher grade homes usually have larger above-ground area.
 - Grade is a strong indicator of both size and price.
@@ -192,7 +183,7 @@ Multivariate Analysis involved visualizing one continuous variable (price) in re
 
 ---
 
-### 3. Analysis of `yr_renovated` vs. `price` and `condition`
+#### 1.4.3 Analysis of `yr_renovated` vs. `price` and `condition`
 
 - Recently renovated homes have higher average prices.
 - Most houses haven't been renovated (value = 0), yet those that are show a clear uplift in price.
@@ -202,7 +193,7 @@ Multivariate Analysis involved visualizing one continuous variable (price) in re
 
 ---
 
-### 4. Analysis of `waterfront` and `view` vs. `price`
+#### 1.4.4 Analysis of `waterfront` and `view` vs. `price`
 
 - Waterfront properties fetch significantly higher prices.
 - Better views (scale 3–4) also increase house value sharply.
@@ -213,7 +204,7 @@ Multivariate Analysis involved visualizing one continuous variable (price) in re
 
 ---
 
-### 5. Analysis of `grade` vs. `price` and `sqft_living`
+#### 1.4.5 Analysis of `grade` vs. `price` and `sqft_living`
 
 - `grade` and `sqft_living` are the most positively correlated features with `price`.
 - Most homes fall within grade 7–10.
@@ -221,14 +212,19 @@ Multivariate Analysis involved visualizing one continuous variable (price) in re
 📊  
 ![Distribution of grade](images/EDA-distribution%20of%20grade.png) 
 
-### 6 Correlation Matrix
+---
+
+#### 1.4.6 Correlation Matrix
 The heatmap below shows the Pearson correlation between numerical features.
 Key insights:
 ![Correlation Matrix](images/EDA-Correlation%20Matrix.png) 
 price is highly correlated with sqft_living and grade.
 
 sqft_above also shows strong correlation with price.
-#### 📈 Top 5 Correlated Features with Price
+
+---
+
+#### 1.4.7 📈 Top 5 Correlated Features with Price
 
 | Feature        | Correlation with Price |
 |----------------|------------------------|
@@ -238,14 +234,17 @@ sqft_above also shows strong correlation with price.
 | bathrooms      | 0.53                   |
 | view           | 0.40                   |
 
+---
 
-## 5. 📦 Outliers
+### 1.5📦 Outliers
 
 Outliers check was performed using Z-Score on key numerical fields such as `price`, `sqft_living`, and `sqft_lot`.  
 No extreme outliers were removed, as most values fell within reasonable ranges.  
 Some skewness was observed in `sqft_lot` and `price`, which were addressed via log transformation during **Feature Engineering**.
 
-### 📊 Boxplots of Key Variables
+---
+
+
 
 **Boxplot – Bedrooms**  
 ![Boxplot - Bedrooms](images/boxplot%20bedrooms.png)
@@ -255,7 +254,7 @@ Some skewness was observed in `sqft_lot` and `price`, which were addressed via l
 
 ---
 
-### 📋 Summary Statistics of Key Features
+#### 1.5.2📋 Summary Statistics of Key Features
 
 | Feature           | Mean       | Std Dev   | Min     | 25%     | 50%     | 75%     | Max       |
 |------------------|------------|-----------|---------|---------|---------|---------|------------|
@@ -279,16 +278,13 @@ Some skewness was observed in `sqft_lot` and `price`, which were addressed via l
 - **Categorical features** such as `waterfront`, `view`, and `renovation status` create distinct price segments.
 - **Multivariate patterns** show that combinations like high `grade` + large `living space` + `waterfront` significantly boost property value.
 - **Geographical clustering** of high-value homes suggests the importance of incorporating location-based features into modeling.
-
-### 🔎 Insights Recap
-
 - Homes with a **waterfront**, **higher grade**, or **better view** tend to be priced significantly higher.
 - `sqft_living` and `grade` have the **strongest correlation** with price.
 - **Outliers** were identified in features such as `sqft_living`, `sqft_lot`, and `price`, requiring transformation or capping during preprocessing.
 
-
 ---
-## 🧠 Feature Selection 
+
+# 2. 🧠 Feature Selection 
 
 📂 **File**: 'scripts/2-Feature_Selectionc.ipynb'
 
@@ -296,7 +292,7 @@ Identifying the most relevant features is critical to building effective predict
 
 ---
 
-### 🔗 Correlation with Price (Pearson)
+### 2.1🔗 Correlation with Price (Pearson)
 
 We visualized how each numeric feature correlates with `price` using a heatmap.
 
@@ -306,7 +302,7 @@ We visualized how each numeric feature correlates with `price` using a heatmap.
 
 ---
 
-### 🌳 Feature Importance from Decision Tree
+### 2.2🌳 Feature Importance from Decision Tree
 
 Decision Tree Regressor helps highlight the most decisive splits used for price prediction.
 
@@ -314,7 +310,7 @@ Decision Tree Regressor helps highlight the most decisive splits used for price 
 
 ---
 
-### 🌲 Feature Importance from Random Forest
+### 2.3🌲 Feature Importance from Random Forest
 
 Ensemble-based Random Forest model confirms the relevance of certain features.
 
@@ -322,7 +318,8 @@ Ensemble-based Random Forest model confirms the relevance of certain features.
 
 ---
 
-### ✅ Key Features Selected for Modeling
+
+### 2.4✅ Key Features Selected for Modeling
 
 | Feature          | Justification                           |
 |------------------|-----------------------------------------|
@@ -334,8 +331,9 @@ Ensemble-based Random Forest model confirms the relevance of certain features.
 | `waterfront`      | Clear segmenting factor for luxury      |
 | `yr_built`        | Reflects construction quality/era       |
 
-# Classification 
-## 🤖 K-Nearest Neighbors (KNN) Regression 
+# 3-Classification 
+
+### 3.1🤖 K-Nearest Neighbors (KNN) Regression 
 
   📂 **File**:'scripts/3-KNNc.ipynb'
 
@@ -343,7 +341,7 @@ K-Nearest Neighbors (KNN) was used as a baseline model to predict housing prices
 
 ---
 
-### ⚙️ Methodology
+#### 3.1.1 ⚙️ Methodology
 
 - Features were scaled using **MinMaxScaler** before training.
 - K values from **1 to 20** were tested using the **validation set**.
@@ -353,7 +351,7 @@ K-Nearest Neighbors (KNN) was used as a baseline model to predict housing prices
 
 ---
 
-### 📈 R² Score vs. Number of Neighbors (K)
+#### 3.1.2 📈 R² Score vs. Number of Neighbors (K)
 
 The R² score peaked around **K = 6**, indicating the best generalization capability at that point.
 
@@ -361,7 +359,7 @@ The R² score peaked around **K = 6**, indicating the best generalization capabi
 
 ---
 
-### 📉 RMSE vs. Number of Neighbors (K)
+#### 3.1.3 📉 RMSE vs. Number of Neighbors (K)
 
 RMSE reached its minimum (~**165,800**) when **K = 6**, suggesting it as the optimal number of neighbors.
 
@@ -369,7 +367,7 @@ RMSE reached its minimum (~**165,800**) when **K = 6**, suggesting it as the opt
 
 ---
 
-### 🔢 Key Metrics (Best Performing K = 6)
+#### 3.1.4 🔢 Key Metrics (Best Performing K = 6)
 
 | Metric       | Value     |
 |--------------|-----------|
@@ -379,7 +377,7 @@ RMSE reached its minimum (~**165,800**) when **K = 6**, suggesting it as the opt
 
 ---
 
-### 🧠 Insights
+#### 3.1.5 🧠 Insights
 
 - KNN achieved a decent **R² score of 0.787** at **K=6**.
 - Performance plateaued after **K > 6**, with minimal variation in results.
@@ -387,13 +385,13 @@ RMSE reached its minimum (~**165,800**) when **K = 6**, suggesting it as the opt
   - **Lacks interpretability**
   - **Scales poorly** with large datasets (due to distance computation)
 
-## 🌳 Decision Tree Regressor 
+## 3.2 🌳 Decision Tree Regressor 
 
  📂 **File**:'scripts/4-DecisionTreeRegressorC.ipynb'
 '
 The **Decision Tree Regressor** was used to understand feature splits and gain interpretability into how the model predicts house prices.
 
-### 🔢 Top 10 Feature Importances
+#### 3.2.1 🔢 Top 10 Feature Importances
 
 The most influential features according to the Decision Tree model are:
 
@@ -403,12 +401,12 @@ The most influential features according to the Decision Tree model are:
 - `long` (longitude)
 - `waterfront` (whether the property has waterfront view)
 
-📊 **Feature Importance Plot**  
+#### 3.2.2 📊 **Feature Importance Plot**  
 ![Top 10 Feature Importances - Decision Tree](images/top%2010%20feature%20importance%20-%20decision%20Tree.png)
 
 ---
 
-### 🌲 Simplified Decision Tree (Max Depth = 2)
+#### 3.2.3🌲 Simplified Decision Tree (Max Depth = 2)
 
 A simplified version of the trained tree reveals key decision rules learned by the model. The most frequent splits occurred on:
 
@@ -416,10 +414,12 @@ A simplified version of the trained tree reveals key decision rules learned by t
 - `sqft_living`
 - `lat`
 
-🧠 **Decision Tree Visualization**  
+ #### 3.2.4 🧠 Decision Tree Visualization**  
 ![Decision Tree](images/Decision%20Tree.png)
 
-## 🌲 Random Forest Regressor  
+---
+
+## 3.3🌲 Random Forest Regressor  
 📂 **File**: `5-Random_Forest_C_ipynb.ipynb`
 
 The **Random Forest Regressor** was implemented as an ensemble method to enhance predictive accuracy and reduce overfitting compared to a standalone decision tree. It aggregates predictions from multiple decision trees, leading to more stable and accurate outputs.
@@ -434,7 +434,7 @@ The **Random Forest Regressor** was implemented as an ensemble method to enhance
 
 ---
 
-## ⚡ XGBoost Regressor  
+ ## 3.4⚡ XGBoost Regressor  
 📂 **File**: `6-XgboostC_ipynb.ipynb`
 
 **XGBoost** is a gradient boosting algorithm known for its scalability and superior performance in structured data problems. It builds trees sequentially and minimizes errors through gradient descent optimization.
@@ -449,14 +449,14 @@ The **Random Forest Regressor** was implemented as an ensemble method to enhance
 
 
 
-## 🔍 Logistic Regression with PCA 
+## 3.5🔍 Logistic Regression with PCA 
 📂**File**:'scripts/7-LogisticRegression_PCA_c.ipynb 
 
 
 
 To visualize the classification and assess performance, a logistic regression model was trained using PCA-reduced features (first 2 principal components). PCA helped reduce dimensionality and allowed us to plot the decision space.
 
-### 📌 Confusion Matrix
+#### 3.5.1 📌 Confusion Matrix
 
 This matrix evaluates the performance of the classifier:
 
@@ -471,7 +471,7 @@ Accuracy, precision, recall, and F1-score were computed based on this confusion 
 
 ---
 
-### 📊 PCA Projection of KC House Data
+#### 3.5.2📊 PCA Projection of KC House Data
 
 The PCA projection provides a 2D visualization of the data structure after dimensionality reduction. The model attempts to separate classes based on price category using logistic regression.
 
@@ -482,7 +482,7 @@ While overlap exists, we can see that PCA + Logistic Regression offers some leve
 
 ![PCA Projection](images/PCA%20Projection.png)  
 
-## 🔁 Cross Validation 
+## 4.🔁 Cross Validation 
 
 📂**File**:'scripts/8-Cross_Validation.ipynb'
 
@@ -492,7 +492,7 @@ We used:
 - **5-Fold Cross Validation**
 - **R² Score** as the performance metric (Root Mean Squared Error was also computed, but not reported here due to missing values).
 
-### 📊 Cross Validation Results
+#### 4.1 📊 Cross Validation Results
 
 | Model           | R² Mean | R² Std   | RMSE Mean | RMSE Std |
 |------------------|---------|----------|-----------|-----------|
@@ -503,7 +503,11 @@ We used:
 
 > 🔎 **XGBoost** achieved the best average R² score (0.887), with the lowest standard deviation, indicating both strong performance and stability.
 
-# 🧪 Feature Engineering + Hyperparameter Tuning
+
+---
+
+
+## 5🧪 Feature Engineering + Hyperparameter Tuning
 
 In this section, we enhance our predictive model by:
 
@@ -513,7 +517,7 @@ In this section, we enhance our predictive model by:
 
 ---
 
-## 🧠 Feature Engineering 
+#### 5.1 🧠 Feature Engineering 
 
 📂**File**:'scripts/9-Feature_Engineering_+_Hyperparameter_Tuning.ipynb'
 
@@ -525,11 +529,11 @@ This feature captures the combined influence of **quality** and **size** of the 
 
 ---
 
-## 🔧 Hyperparameter Tuning (XGBoost)
+#### 5.2 🔧 Hyperparameter Tuning (XGBoost)
 
 We used `RandomizedSearchCV` to find the best hyperparameters for the `XGBRegressor`.
 
-### Parameters tuned:
+#### 5.2 Parameters tuned:
 
 | Parameter           | Values Tested                        |
 |---------------------|--------------------------------------|
@@ -546,7 +550,7 @@ We used:
 
 ---
 
-## ✅ Results
+#### 5.3 ✅ Results
 
 | Metric                 | Value           |
 |------------------------|-----------------|
@@ -556,19 +560,22 @@ We used:
 
 This confirms that feature engineering + hyperparameter tuning helped the model generalize better and lower the prediction error compared to the untuned XGBoost model.
 
----
+
 
 📌 This step significantly improved model robustness and should be used prior to deployment.
 
 
-## 🧩 Structured Conclusion
+---
 
-### 🎯 1. Objective  
+
+# 6 🧩 Structured Conclusion
+
+#### 🎯 6.1 Objective  
 The aim of this project was to predict house prices in Seattle using the `kc_house_data.csv` dataset. This involved performing exploratory data analysis, feature selection, model comparison, and performance evaluation.
 
 ---
 
-### 📊 2. Model Performance Summary
+#### 📊 6.2 Model Performance Summary
 
 | Model                  | R² Score | RMSE (€) | R² Cross-Validation |
 |------------------------|----------|----------|----------------------|
@@ -584,7 +591,7 @@ The aim of this project was to predict house prices in Seattle using the `kc_hou
 
 ---
 
-### 💬 3. Residual Analysis  
+#### 💬 6.3 Residual Analysis  
 The residual plot for the Random Forest model shows:
 
 - Residuals are centered around 0 ✅  
@@ -597,7 +604,7 @@ This supports the model’s stability and highlights areas where further improve
 
 ---
 
-### 🔁 4. Cross-Validation  
+#### 🔁 6.4 Cross-Validation  
 The cross-validation R² scores closely match test set performance for both Random Forest and XGBoost.  
 This indicates:
 
@@ -607,28 +614,31 @@ This indicates:
 
 ---
 
-### ✅ 5. Final Recommendation  
+#### ✅ 6.5 Final Recommendation  
 
 - ✅ Use **XGBoost** for production when maximum accuracy is needed  
 - 🧠 **Random Forest** is an excellent balance between speed and performance  
 - ❌ Avoid **KNN** or unoptimized Decision Trees for complex real-estate pricing
 
 
-## 🧠 Business Insights & Post-Processing  
+
+---
+
+# 7.🧠 Business Insights & Post-Processing  
 
 📌 **What can we do with these predictions?**  
 If I were a **real estate agent**, a **property investor**, or a **homeowner**, here's how I would leverage the model’s output:
 
 ---
 
-### 🎯 1. Property Valuation & Pricing Strategy  
+#### 🎯 7.1. Property Valuation & Pricing Strategy  
 - Provide accurate, data-driven **price recommendations** for property listings.
 - Prevent **underpricing** (loss of potential income) and **overpricing** (longer selling time).
 - Help define **negotiation margins** based on predicted market value.
 
 ---
 
-### 🏗️ 2. Identify Renovation Opportunities  
+#### 🏗️ 7.2. Identify Renovation Opportunities  
 - Simulate **“what-if” scenarios** to test the impact of features like:
   - Renovating a basement
   - Upgrading house grade
@@ -636,14 +646,14 @@ If I were a **real estate agent**, a **property investor**, or a **homeowner**, 
 
 ---
 
-### 🌍 3. Target High-Value Locations  
+#### 🌍 7.3 Target High-Value Locations  
 - Use geospatial features (latitude, longitude, view, waterfront) to:
   - Detect **premium zones** and **clusters of high-value homes**.
   - Guide clients or investors toward **top-performing neighborhoods**.
 
 ---
 
-### 🧮 4. Buyer Persona Matching  
+#### 🧮 7.4. Buyer Persona Matching  
 - Recommend properties to clients based on:
   - Budget alignment with predicted price
   - Preference filters (e.g., number of bathrooms, view, lot size)
@@ -651,12 +661,15 @@ If I were a **real estate agent**, a **property investor**, or a **homeowner**, 
 
 ---
 
-### 📦 5. Portfolio Optimization (For Investors)  
+#### 📦 7.5. Portfolio Optimization (For Investors)  
 - Spot **undervalued listings** by comparing predicted vs listed prices.
 - Build a portfolio of properties with **high appreciation potential**.
 - Streamline acquisition strategies using model insights.
 
 
+
+
+---
 
 
 ## 📑 Author
