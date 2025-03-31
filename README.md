@@ -458,6 +458,19 @@ The **Random Forest Regressor** was implemented as an ensemble method to enhance
 ## 3.5🔍 Logistic Regression with PCA 
 📂**File**:'scripts/7-LogisticRegression_PCA_c.ipynb 
 
+#### 🎯 Why use Logistic Regression with PCA?
+
+The motivation for this approach is twofold:
+
+1. **Dimensionality Reduction**:  
+   The original dataset contains a high number of features. PCA helps reduce this complexity by retaining the most informative components, which improves model performance and helps prevent overfitting.
+
+2. **Visualization of the Decision Boundary**:  
+   By reducing the feature space to 2 dimensions, we can **visually inspect** the decision regions of the logistic regression classifier — something not feasible in higher dimensions.
+
+This setup allows us to assess both the **classification capability** of the model and to **visually interpret** its decision boundaries.
+
+---
 
 
 To visualize the classification and assess performance, a logistic regression model was trained using PCA-reduced features (first 2 principal components). PCA helped reduce dimensionality and allowed us to plot the decision space.
@@ -488,29 +501,29 @@ While overlap exists, we can see that PCA + Logistic Regression offers some leve
 
 ![PCA Projection](images/PCA%20Projection.png)  
 
-## 4.🔁 Cross Validation 
+## 4. 🔁 Cross Validation  
 
-📂**File**:'scripts/8-Cross_Validation.ipynb'
+📂**File**: `scripts/8-Cross_Validation.ipynb`
 
 To evaluate model stability and generalizability, we applied **K-Fold Cross Validation** across several regression models using the R² metric.
 
 We used:
 - **5-Fold Cross Validation**
-- **R² Score** as the performance metric (Root Mean Squared Error was also computed, but not reported here due to missing values).
+- **R² Score** as the main performance metric  
+- **Root Mean Squared Error (RMSE)** was also computed to provide additional insight into model error.
+
+---
 
 #### 4.1 📊 Cross Validation Results
 
 | Model           | R² Mean | R² Std   | RMSE Mean | RMSE Std |
 |------------------|---------|----------|-----------|-----------|
-| K-Nearest Neighbors (KNN) | 0.7863  | 0.0173   | NaN       | NaN       |
-| Decision Tree    | 0.7453  | 0.0229   | NaN       | NaN       |
-| Random Forest    | 0.8784  | 0.0075   | NaN       | NaN       |
-| XGBoost          | **0.8873**  | **0.0063**   | NaN       | NaN       |
+| K-Nearest Neighbors (KNN) | 0.79721  | 0.01490   | 165,231.57 | 13,354.75 |
+| Decision Tree    | 0.75338  | 0.01864   | 182,184.61 | 14,480.24 |
+| Random Forest    | 0.87885  | 0.01205   | 127,622.92 | 11,030.49 |
+| XGBoost          | **0.88165**  | **0.01482**   | **126,101.42** | **12,556.08** |
 
-> 🔎 **XGBoost** achieved the best average R² score (0.887), with the lowest standard deviation, indicating both strong performance and stability.
-
-
----
+> 🔎 **XGBoost** achieved the best average R² score (0.88165), with the lowest RMSE (126,101.42), confirming its excellent balance between accuracy and stability.
 
 
 ## 5🧪 Feature Engineering + Hyperparameter Tuning
