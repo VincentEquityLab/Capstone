@@ -19,6 +19,14 @@ Capstone Project for **Berkeley HAAS (ML & AI Program)**
 
 - **Original dataset** contains ~21,000 rows and 21 columns (features + target)
 
+- ### 📂 Dataset Source
+
+The dataset used in this project comes from Kaggle:
+
+🔗 [House Sales in King County, USA – Kaggle Dataset](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction?resource=download)
+
+This dataset contains house sale prices for King County, which includes Seattle. It covers over 20,000 residential homes sold between May 2014 and May 2015.
+
 ### Features Description
 
 | #  | Column Name     | Data Type | Description                                        |
