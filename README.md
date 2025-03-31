@@ -220,33 +220,9 @@ The heatmap below shows the Pearson correlation between numerical features.
 
 ![Correlation Matrix](images/Correlation%20Matrix%20without%20ID.png)
 
-Removing the `id` column from the correlation matrix eliminates noise and improves interpretability.
-
-###### 🔍 Key Observations:
-
-- `sqft_living` (**0.70**) and `grade` (**0.67**) remain the **top correlated features** with `price`.
-- `sqft_above` (**0.61**) and `sqft_living15` (**0.59**) also exhibit strong positive correlation with `price`.
-- `bathrooms` (**0.53**) and `view` (**0.40**) add meaningful predictive value.
-- `yr_built` and `yr_renovated` show limited correlation on their own but could be important when combined.
-- Features like `zipcode`, `floors`, and `condition` show weaker individual correlations.
-
-##### 📈 Top 10 Features Correlated with Price
-
-| Feature           | Correlation |
-|------------------|-------------|
-| sqft_living       | 0.70        |
-| grade             | 0.67        |
-| sqft_above        | 0.61        |
-| sqft_living15     | 0.59        |
-| bathrooms         | 0.53        |
-| view              | 0.40        |
-| sqft_basement     | 0.32        |
-| bedrooms          | 0.31        |
-| lat               | 0.31        |
-| waterfront        | 0.27        |
-
 
 ---
+
 
 #### 1.4.7 📈 Top 5 Correlated Features with Price
 
@@ -258,6 +234,12 @@ Removing the `id` column from the correlation matrix eliminates noise and improv
 | bathrooms      | 0.53                   |
 | view           | 0.40                   |
 
+- `sqft_living` (**0.70**) and `grade` (**0.67**) remain the **top correlated features** with `price`.
+- `sqft_above` (**0.61**) and `sqft_living15` (**0.59**) also exhibit strong positive correlation with `price`.
+- `bathrooms` (**0.53**) and `view` (**0.40**) add meaningful predictive value.
+- `yr_built` and `yr_renovated` show limited correlation on their own but could be important when combined.
+- Features like `zipcode`, `floors`, and `condition` show weaker individual correlations.
+  
 ---
 
 ### 1.5📦 Outliers
