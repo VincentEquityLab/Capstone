@@ -16,6 +16,7 @@ Capstone Project for **Berkeley HAAS (ML & AI Program)**
 ---
 
 ## 📚 Table of Contents
+- [📊 Dataset Source](#-dataset-source)
 - [1. Exploratory Data Analysis](#1exploratory-data-analysis-eda)
 - [2. Feature Selection](#2-feature-selection)
 - [3. Modeling](#3-classification)
@@ -23,21 +24,22 @@ Capstone Project for **Berkeley HAAS (ML & AI Program)**
 - [5. Feature Engineering + Tuning](#5-feature-engineering--hyperparameter-tuning)
 - [6. Conclusion](#6-structured-conclusion)
 - [7. Business Insights](#7business-insights--post-processing)
-- [📊 Dataset Source](#-dataset-source)
+
 
 ---
 
-## 📁 Dataset Overview
-
-- **Original dataset** contains ~21,000 rows and 21 columns (features + target)
-
-- ### 📂 Dataset Source
+## 📁 Dataset Source
 
 The dataset used in this project comes from Kaggle:
 
 🔗 [House Sales in King County, USA – Kaggle Dataset](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction?resource=download)
 
 This dataset contains house sale prices for King County, which includes Seattle. It covers over 20,000 residential homes sold between May 2014 and May 2015.
+
+
+- ### 📂 Dataset Overview
+
+- **Original dataset** contains ~21,000 rows and 21 columns (features + target)
 
 ### Features Description
 
@@ -301,7 +303,7 @@ Some skewness was observed in `sqft_lot` and `price`, which were addressed via l
 
 ---
 
-## 🔚 Conclusion
+### Analysis Results EDA
 
 - `sqft_living`, `grade`, and `bathrooms` are the most influential **numerical features** affecting house prices.
 - **Categorical features** such as `waterfront`, `view`, and `renovation status` create distinct price segments.
