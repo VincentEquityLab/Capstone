@@ -15,6 +15,18 @@ Capstone Project for **Berkeley HAAS (ML & AI Program)**
 
 ---
 
+## 📚 Table of Contents
+- [1. Exploratory Data Analysis](#1exploratory-data-analysis-eda)
+- [2. Feature Selection](#2-feature-selection)
+- [3. Modeling](#3-classification)
+- [4. Cross Validation](#4-cross-validation)
+- [5. Feature Engineering + Tuning](#5-feature-engineering--hyperparameter-tuning)
+- [6. Conclusion](#6-structured-conclusion)
+- [7. Business Insights](#7business-insights--post-processing)
+- [📊 Dataset Source](#-dataset-source)
+
+---
+
 ## 📁 Dataset Overview
 
 - **Original dataset** contains ~21,000 rows and 21 columns (features + target)
