@@ -214,11 +214,14 @@ Multivariate Analysis involved visualizing one continuous variable (price) in re
 
 ---
 
-#### 1.4.6 Correlation Matrix
-The heatmap below shows the Pearson correlation between numerical features.
+#### 1.4.6 📈 Correlation Matrix (ID Removed, Price First)
 
+The correlation heatmap below displays the Pearson correlation between all numerical features, with the `id` column removed and `price` placed as the first column for better interpretability.  
 
-![Correlation Matrix](images/Correlation%20Matrix%20without%20ID.png)
+This allows us to more clearly identify which features have the strongest linear relationships with the target variable `price`.
+
+![Correlation Matrix](images/Correlation%20Matrix%20ID%20Removed%2C%20Price%20First.png)
+
 
 
 ---
